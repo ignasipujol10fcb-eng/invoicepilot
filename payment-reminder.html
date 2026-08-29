@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Invoice Payment Reminder Generator | InvoicePilot</title>
+<meta name="description" content="Create a polite, professional payment reminder for an overdue invoice. Choose the situation, personalize the message, and copy it in seconds.">
+<style>
+:root{--blue:#175cd3;--ink:#101828;--muted:#667085;--line:#e4e7ec;--bg:#f7f8fa}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,sans-serif}header{background:#fff;border-bottom:1px solid var(--line);padding:16px 6%;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:850;font-size:21px}.nav a{color:#344054;text-decoration:none;margin-left:18px;font-size:14px}.wrap{max-width:920px;margin:auto;padding:54px 22px}.hero{text-align:center;max-width:720px;margin:auto}.eyebrow{display:inline-block;color:var(--blue);background:#eef4ff;border-radius:99px;padding:6px 11px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(38px,7vw,62px);line-height:1.04;letter-spacing:-2.5px;margin:18px 0 14px}.hero p{color:var(--muted);font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 5px 20px #1018280a}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field label{font-size:12px;font-weight:750;color:#475467}.field input,.field select,.field textarea{font:inherit;padding:11px;border:1px solid #d0d5dd;border-radius:9px;width:100%}.field textarea{min-height:110px;resize:vertical}.btn,.secondary{border-radius:9px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}.btn{background:var(--blue);color:#fff;border:0}.secondary{background:#fff;border:1px solid var(--line);color:#344054}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}.output{white-space:pre-wrap;background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:16px;min-height:260px;color:#344054}.note{font-size:12px;color:var(--muted);margin-top:10px}.below{margin-top:26px;text-align:center;color:var(--muted)}.below a{color:var(--blue);font-weight:800}@media(max-width:720px){.grid{grid-template-columns:1fr}.nav{display:none}.wrap{padding-top:38px}}
+</style>
+</head>
+<body>
+<header><div class="logo">InvoicePilot</div><nav class="nav"><a href="./">Invoice generator</a><a href="#tool">Payment reminder</a></nav></header>
+<main class="wrap">
+<section class="hero"><span class="eyebrow">FREE • NO ACCOUNT REQUIRED</span><h1>Send a payment reminder without sounding awkward.</h1><p>Choose the situation, add the invoice details, and get a concise message you can review, edit and send yourself.</p></section>
+<section id="tool" class="grid">
+<div class="card">
+<h2>Build your reminder</h2>
+<div class="field"><label for="name">Client name</label><input id="name" placeholder="Alex"></div>
+<div class="field"><label for="number">Invoice number</label><input id="number" placeholder="INV-2026-014"></div>
+<div class="field"><label for="amount">Amount</label><input id="amount" placeholder="€450"></div>
+<div class="field"><label for="due">Due date</label><input id="due" type="date"></div>
+<div class="field"><label for="stage">Situation</label><select id="stage"><option value="before">Due soon — friendly heads-up</option><option value="late">A few days overdue — polite reminder</option><option value="followup">Long overdue — clear professional follow-up</option></select></div>
+<div class="field"><label for="link">Payment link (optional)</label><input id="link" type="url" placeholder="https://buy.stripe.com/..."></div>
+<div class="actions"><button class="btn" onclick="generate()">Create reminder</button><button class="secondary" onclick="copyText()">Copy message</button></div>
+<p class="note">Review the message before sending. InvoicePilot does not send messages automatically from this page.</p>
+</div>
+<div class="card"><h2>Your message</h2><div id="out" class="output">Your personalized reminder will appear here.</div></div>
+</section>
+<p class="below">Need the invoice too? <a href="./#create">Create a professional invoice free →</a></p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function moneyText(v){return v||'[amount]'}
+function generate(){const n=$("name").value.trim()||"there",num=$("number").value.trim()||"[invoice number]",amt=moneyText($("amount").value.trim()),due=$("due").value,link=$("link").value.trim(),stage=$("stage").value;const date=due?new Date(due+"T12:00:00").toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"}):"the agreed date";let subject,body;if(stage==="before"){subject=`Quick heads-up — invoice ${num}`;body=`Hi ${n},\n\nJust a quick heads-up that invoice ${num} for ${amt} is due on ${date}.\n\nIf everything is in order, no action is needed yet. I just wanted to make sure you have the invoice handy.\n\nThanks,\n[Your name]`;}else if(stage==="late"){subject=`Friendly reminder — invoice ${num}`;body=`Hi ${n},\n\nJust a quick reminder that invoice ${num} for ${amt} was due on ${date}. It may simply have slipped through, so I wanted to check that everything is okay on your side.\n\n${link?"Payment link: "+link+"\n\n":""}Please let me know if you need the invoice resent or if there is anything I can clarify.\n\nThanks,\n[Your name]`;}else{subject=`Follow-up regarding invoice ${num}`;body=`Hi ${n},\n\nI’m following up regarding invoice ${num} for ${amt}, which was due on ${date}. Could you please confirm when payment is expected?\n\n${link?"Payment link: "+link+"\n\n":""}If there is any issue with the invoice or payment process, please let me know and I’ll be happy to help resolve it.\n\nBest,\n[Your name]`;}$("out").textContent=`Subject: ${subject}\n\n${body}`}
+function copyText(){const t=$("out").textContent;if(t.startsWith("Your personalized")){generate();return}navigator.clipboard?.writeText(t);}
+generate();
+</script>
+</body>
+</html>
