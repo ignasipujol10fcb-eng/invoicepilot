@@ -1,40 +1,79 @@
 # InvoicePilot — Revenue Priority
 
-## Current objective
-Reach €5,000/week in sustainable revenue without deceptive marketing, fabricated customers, spam, or unverified payment claims.
+Last reviewed: 2026-08-29
 
-## Highest-impact bottleneck
-The product has a useful free invoice workflow, but the paid path is still not a live self-serve transaction. The current checkout page intentionally keeps purchase buttons inactive until a real merchant payment account/link exists. Therefore the immediate priority is **not another generic invoice feature**: it is turning the paid path into a real, measurable, trustworthy transaction.
+## Highest-impact objective
 
-## New finding — hard dependency
-A secure checkout cannot be activated honestly from the static repository alone. It requires a merchant payment account and a real hosted checkout/payment URL or a server-side payment integration with credentials supplied by the owner. Those credentials must never be committed to GitHub or embedded in the static frontend.
+Move from a static/free invoice utility to a product that can complete and verify a legitimate paid conversion.
 
-Until that dependency exists, the correct state is to keep checkout clearly unavailable rather than pretending that a payment was completed.
+## Current verified status
 
-## Priority order
-1. **Verified checkout** — connect a merchant-hosted payment flow and verify payment status server-side before granting Pro/Business access.
-2. **Conversion instrumentation** — measure landing-page visit → invoice creation → Pro interest → checkout start → successful payment. Never infer a sale from a click or email.
-3. **Vertical landing pages** — focus acquisition on one high-fit segment at a time (initially freelancers and tutors/online teachers) and compare conversion rates.
-4. **Retention value** — after checkout works, add client history, reusable client records, recurring invoices and automated reminders only where they directly improve retention or willingness to pay.
-5. **Higher-value plans** — €5,000/week is approximately €21,667/month. A €9/month plan alone would require roughly 2,408 active subscribers to reach that monthly revenue level. Therefore Business/team/agency plans and/or higher-value workflow features will be necessary for a credible path to the target.
+- Verified paying customers: 0
+- Verified revenue: €0
+- No financial result is claimed until a real payment is confirmed.
 
-## Immediate implementation checklist
-- Obtain/create the merchant payment account outside the code repository.
-- Create the real Pro and Business hosted checkout products/prices.
-- Add only the public checkout URLs to the site.
-- Keep payment verification/webhooks on a secure server; never put secret keys in `index.html`.
-- Test a real payment in the provider's test mode before production activation.
-- Record the first production payment only after it is actually confirmed.
+## Priority #1 — secure paid conversion
 
-## Sales principles
-- Be helpful, polite and professional.
-- Solve a concrete payment-follow-up problem instead of selling a generic "invoice generator."
-- Use honest claims only.
-- Do not buy leads, spam communities, fabricate testimonials, create fake urgency, or claim payment processing before it is actually implemented.
-- Do not collect card details directly in the static frontend.
+1. Use a merchant-hosted checkout provider.
+2. Keep secret/API credentials server-side; never place secret keys in the static GitHub Pages frontend.
+3. Connect successful payment to a paid entitlement/account.
+4. Add customer-visible success/cancel paths.
+5. Test the complete flow in the provider's test mode before enabling live sales.
+6. Only enable live payments after the merchant account and product terms are properly configured.
 
-## Next implementation
-The next code-side improvement should be a minimal checkout integration that accepts only verified public hosted-payment URLs, followed by server-side payment verification and privacy-conscious funnel measurement. Once the first verified purchase exists, use actual objections and conversion data to decide the next product change.
+This is the current bottleneck because the public product cannot yet complete an independently verified Pro/Business purchase.
 
-## Verified results
-As of this review: **0 verified paying customers and €0 verified revenue**. No revenue result is claimed until a real payment is confirmed.
+## Positioning
+
+Do not compete as another generic accounting suite. Lead with the concrete workflow:
+
+**Create invoice → add payment link → track unpaid → send a professional follow-up.**
+
+Initial customer segments:
+- freelancers/consultants
+- tutors and online teachers
+- small service businesses
+
+The promise must remain factual. Do not claim InvoicePilot processes payments unless the product actually does so.
+
+## Funnel
+
+Visitor → useful free invoice → saved/reusable workflow → Pro/Business value → secure checkout → verified paid account → retention.
+
+Measure each stage before scaling traffic. If traffic is low, improve acquisition; if visitors do not start an invoice, improve positioning/UX; if users create invoices but do not buy, improve offer/trust/checkout; if paid users churn, improve retention.
+
+## Revenue target reality
+
+€5,000/week is approximately €21,667/month. A €9/month plan alone would require about 2,408 active subscribers to reach €21,667 in monthly recurring revenue. Therefore the long-term model needs higher-value Business/team/agency customers in addition to Pro.
+
+## Acquisition
+
+Start narrow and learn:
+- create useful, search-intent pages for invoice/payment problems;
+- target freelancers, tutors and small service businesses;
+- use permission-based communities and personalized outreach where allowed;
+- provide genuine value before asking for a sale;
+- track source → activation → checkout → paid conversion;
+- do not spam, scrape private data, buy fake traffic, fabricate testimonials or fabricate customer numbers.
+
+## Next product improvements after checkout
+
+1. Accounts and cloud-saved clients/invoices.
+2. Reusable client profiles and invoice templates.
+3. Recurring invoices for Pro/Business.
+4. Reminder scheduling and payment-status automation.
+5. Business/team roles and higher-value workflow features.
+
+## Implementation plan
+
+**Phase 1 — transaction:** real hosted checkout, test-mode validation, secure payment verification, success/cancel paths.
+
+**Phase 2 — measurement:** privacy-conscious funnel events for visit, invoice creation, Pro interest, checkout start and confirmed payment. A click is not a sale.
+
+**Phase 3 — focused acquisition:** test freelancers and tutors separately, record qualified traffic and conversion, and stop channels that produce no evidence of demand.
+
+**Phase 4 — retention/ARPU:** build cloud accounts, client history, recurring billing and team features only after real users show demand. Use paid-customer feedback to choose priorities.
+
+## Guardrails
+
+No deceptive claims, fake customers, fake revenue, fabricated conversion rates, spam, undisclosed financial/legal actions, or irreversible changes. Financial/legal configuration requires appropriate owner/provider review before going live.
