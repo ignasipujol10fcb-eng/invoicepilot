@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoice Late Payment Calculator — InvoicePilot</title>
+<meta name="description" content="Calculate how many days an invoice is overdue and estimate outstanding interest using a rate you enter. Free, simple and browser-based.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://ignasipujol10fcb-eng.github.io/invoicepilot/invoice-late-payment-calculator.html">
+<style>
+:root{--a:#175cd3;--t:#101828;--m:#667085;--l:#e4e7ec;--bg:#f7f8fa}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--t)}header{padding:16px 6%;background:#fff;border-bottom:1px solid var(--l);display:flex;justify-content:space-between}a{color:var(--a);text-decoration:none}.wrap{max-width:760px;margin:auto;padding:48px 24px}.card{background:#fff;border:1px solid var(--l);border-radius:16px;padding:26px;box-shadow:0 5px 20px #1018280a}.hero{text-align:center;margin-bottom:24px}.hero h1{font-size:clamp(34px,6vw,54px);letter-spacing:-2px;margin:10px 0}.hero p{color:var(--m);line-height:1.6}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;font-weight:700}.field input{padding:11px;border:1px solid #d0d5dd;border-radius:8px;font:inherit}.full{grid-column:1/-1}.btn{margin-top:15px;background:var(--a);color:#fff;border:0;border-radius:9px;padding:12px 18px;font-weight:750;cursor:pointer}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.stat{background:#f9fafb;border:1px solid var(--l);border-radius:12px;padding:16px}.stat b{font-size:24px}.stat span{display:block;color:var(--m);font-size:12px;margin-top:4px}.note{font-size:12px;color:var(--m);line-height:1.55;margin-top:18px}.cta{text-align:center;margin-top:25px}.cta a{display:inline-block;background:var(--a);color:#fff;padding:12px 18px;border-radius:9px;font-weight:750}@media(max-width:650px){.grid,.results{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<header><strong>InvoicePilot</strong><a href="index.html">Create an invoice →</a></header>
+<main class="wrap">
+<section class="hero"><span>FREE TOOL</span><h1>Invoice Late Payment Calculator</h1><p>See how many days an invoice is overdue and estimate interest using the annual rate you choose. No account required.</p></section>
+<section class="card">
+<div class="grid">
+<div class="field"><label>Invoice amount (€)</label><input id="amount" type="number" min="0" step="0.01" value="500"></div>
+<div class="field"><label>Annual interest rate (%)</label><input id="rate" type="number" min="0" step="0.01" value="0"></div>
+<div class="field"><label>Due date</label><input id="due" type="date"></div>
+<div class="field"><label>Calculation date</label><input id="today" type="date"></div>
+</div>
+<button class="btn" onclick="calculate()">Calculate overdue amount</button>
+<div class="results"><div class="stat"><b id="days">0</b><span>Days overdue</span></div><div class="stat"><b id="interest">€0.00</b><span>Estimated interest</span></div><div class="stat"><b id="total">€0.00</b><span>Amount + estimate</span></div></div>
+<p class="note">This is a mathematical estimate based only on the dates, amount and rate you enter. Actual late-payment rights, interest rates and fees depend on the applicable contract and law. InvoicePilot does not provide legal or accounting advice.</p>
+</section>
+<section class="cta"><p>Ready to turn the result into a professional invoice?</p><a href="index.html#create">Create an invoice free →</a></section>
+</main>
+<script>
+const d=new Date(); document.getElementById('today').value=d.toISOString().slice(0,10);
+function calculate(){const amount=Number(document.getElementById('amount').value)||0;const rate=Number(document.getElementById('rate').value)||0;const due=document.getElementById('due').value;const today=document.getElementById('today').value;if(!due||!today){return}const ms=86400000;const days=Math.max(0,Math.floor((new Date(today+'T00:00:00')-new Date(due+'T00:00:00'))/ms));const interest=amount*(rate/100)*(days/365);document.getElementById('days').textContent=days;document.getElementById('interest').textContent='€'+interest.toFixed(2);document.getElementById('total').textContent='€'+(amount+interest).toFixed(2)}
+</script>
+</body>
+</html>
