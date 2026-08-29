@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ignasipujol10fcb-eng.github.io/invoicepilot/sitemap.xml
