@@ -4,11 +4,17 @@
 
 Long-term target: **€5,000/week (~€21,667/month)**. This is an objective, not a claimed result.
 
-The immediate objective is simpler: **obtain the first verified paying customer**. Until checkout is live, the product can generate interest but cannot reliably convert that interest into recurring revenue.
+The immediate objective is simpler: **obtain the first verified paying customer**. No payment should be counted until a real transaction is confirmed.
 
 ## Highest-impact bottleneck
 
-The current checkout page still has disabled payment buttons because a merchant payment account/payment links have not been connected. Do not pretend otherwise. The next implementation priority is a real merchant-hosted checkout, followed by payment confirmation and subscription handling.
+InvoicePilot now has a live product and a manual Pro checkout. The current bottleneck is therefore **qualified acquisition and conversion**, while payment activation remains manual. Do not describe Pro as an automatic subscription or claim that InvoicePilot processes card payments.
+
+## Current Pro offer
+
+**€19 for 30 days of Pro access.** Payment is currently made manually through the linked Revolut payment page, then independently verified before Pro access is activated. This is a manual renewal model, not an automatic recurring subscription.
+
+Do not advertise a different price in outreach or sales material unless the checkout is changed first.
 
 ## Ideal first customer
 
@@ -25,10 +31,6 @@ Core promise:
 - Prepare a polite follow-up without manually rewriting it.
 
 Do not claim that InvoicePilot itself processes payments until a real payment provider integration exists.
-
-## First-customer offer
-
-Founding-user price: **€9/month** while the product is early. Use this as an early-adopter offer, not as evidence of market demand. Do not promise features that do not exist.
 
 ## 72-hour acquisition sprint
 
@@ -49,8 +51,8 @@ Founding-user price: **€9/month** while the product is early. Use this as an e
 ### Day 3 — close and learn
 
 - Follow up politely with interested prospects.
-- Offer the founding-user plan only to people who understand the product and want it.
-- Record actual conversations and objections.
+- Offer Pro only to people who understand the product and want it.
+- Record actual conversations and objections without exposing private customer data.
 - If there are no sales, diagnose the funnel rather than inventing success.
 
 ## Funnel diagnosis
@@ -86,7 +88,7 @@ Useful commercial themes include:
 
 ## Revenue path
 
-€9/month is useful for validating willingness to pay, but **€5,000/week cannot sensibly depend on €9 subscriptions alone**. Once initial demand is validated, test higher-value Business/team plans based on real customer needs, such as multi-user workflow, recurring invoices and stronger reporting.
+€19/30 days is a validation offer, not evidence of product-market fit. At that price, €1,000/week would require about **53 new 30-day purchases per week** if every purchase were a separate 30-day sale; €5,000/week would require about **264**. That makes the near-term priority qualified acquisition and activation, followed by testing higher-value plans only after real customer demand reveals which features justify them.
 
 ## Current evidence
 
@@ -94,8 +96,7 @@ Useful commercial themes include:
 
 ## Next implementation priority
 
-1. Connect a verified merchant-hosted checkout.
-2. Confirm successful payment/subscription status securely.
-3. Make Pro purchase frictionless from every high-intent landing page.
-4. Add analytics for landing-page → activation → upgrade → purchase conversion.
-5. Scale the best-performing acquisition channel only after the first conversion signal exists.
+1. Add a privacy-conscious way to measure landing-page → generator activation → Pro intent → purchase without collecting unnecessary personal data.
+2. Make Pro purchase frictionless once a verified merchant-hosted checkout is available.
+3. Record real objections from qualified prospects and fix the most common one.
+4. Scale only the acquisition channel that produces genuine activation or purchase signals.
