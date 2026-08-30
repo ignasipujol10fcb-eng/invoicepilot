@@ -20,6 +20,8 @@ Do not advertise a different price in outreach or sales material unless the chec
 
 Start with solo freelancers and small service businesses that send several invoices each month: designers, developers, translators, consultants, tutors, marketers and small agencies.
 
+A prospect is higher priority when there is a visible fit: they invoice clients regularly, currently use a spreadsheet/document/manual workflow, or publicly discuss chasing late payments. Do not infer sensitive personal or financial circumstances.
+
 ## Positioning
 
 **InvoicePilot is the lightweight invoicing workflow for freelancers who don't want a full accounting suite.**
@@ -31,6 +33,36 @@ Core promise:
 - Prepare a polite follow-up without manually rewriting it.
 
 Do not claim that InvoicePilot itself processes payments until a real payment provider integration exists.
+
+## Qualified outreach playbook
+
+The goal is **relevant conversations, not message volume**. Only contact people through channels where outreach is permitted, and stop when someone declines or does not want further contact.
+
+### Before contacting someone
+
+Check only information that is openly published for professional contact. Confirm there is a genuine invoicing use case. Personalize one sentence around the public context; never mention private or sensitive information.
+
+Use a simple prospect record containing only: public profile/page, reason for fit, date contacted, status, and non-sensitive objection/feedback. Delete stale prospect data when it is no longer needed.
+
+### Message 1 — useful and low-pressure
+
+> Hi [Name] — I noticed you work with clients on [service]. I’m building InvoicePilot, a lightweight tool for freelancers to create invoices, keep unpaid invoices visible, and prepare professional payment reminders. If invoicing/admin is something you deal with regularly, you can try the free version here: [link]. No pressure — I’d genuinely value feedback on what feels missing.
+
+### Message 2 — only if appropriate
+
+Send one short follow-up after a reasonable interval only where the channel/rules allow it:
+
+> Hi [Name] — just following up once in case my earlier message got buried. If you invoice clients regularly, I’d be especially interested in whether the invoice → unpaid → reminder workflow is useful or what you would change. If it’s not relevant, no worries.
+
+### Message 3 — close the loop
+
+> I’ll close the loop here so I don’t clutter your inbox. Thanks either way, and if invoicing becomes a pain point later, InvoicePilot is available to try for free.
+
+Do not send all three messages automatically to everyone. Stop immediately after a clear decline, unsubscribe request, or indication that the contact is not appropriate.
+
+### Community posting
+
+Where self-promotion is permitted, lead with the useful resource rather than a sales pitch: invoice templates, payment-reminder examples, late-payment calculation guidance, or practical invoicing checklists. Disclose InvoicePilot's connection and avoid repetitive link drops.
 
 ## 72-hour acquisition sprint
 
