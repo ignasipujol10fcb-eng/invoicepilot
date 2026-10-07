@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InvoicePilot — Alexa+ Demo</title>
+<style>
+body{margin:0;font-family:Inter,system-ui;background:#0b1020;color:#f4f7fb}main{max-width:980px;margin:50px auto;padding:24px}.hero{padding:34px;border:1px solid #26324d;border-radius:24px;background:linear-gradient(145deg,#111a31,#0c1222)}h1{font-size:48px;margin:0 0 8px}p{color:#aab7ce}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.card{background:#111a2b;border:1px solid #26324d;border-radius:18px;padding:20px}.btn{border:0;border-radius:12px;padding:13px 16px;background:#ff9900;color:#111;font-weight:800;cursor:pointer;margin:5px}.output{white-space:pre-wrap;background:#080d18;border-radius:12px;padding:16px;min-height:140px}.pill{display:inline-block;padding:5px 9px;border-radius:999px;background:#23304a;color:#cbd7ea;font-size:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}h1{font-size:36px}}
+</style>
+</head>
+<body><main>
+<section class="hero"><span class="pill">AMAZON DEVELOPER HACKATHON 2026</span><h1>InvoicePilot × Alexa+</h1><p>Ask for the state of your business instead of opening another dashboard.</p>
+<button class="btn" onclick="call('invoice_summary')">What's outstanding?</button>
+<button class="btn" onclick="call('list_invoices',{status:'overdue'})">Show overdue</button>
+<button class="btn" onclick="call('ai_business_summary')">AI summary</button>
+</section>
+<div class="grid"><section class="card"><h2>Alexa-style request</h2><p id="utterance">“What invoices need my attention?”</p><div class="output" id="output">Ready.</div></section>
+<section class="card"><h2>MCP tools</h2><p>initialize → tools/list → tools/call</p><p><strong>Protocol:</strong> 2025-11-25</p><p><strong>Transport:</strong> Streamable HTTP</p><p><strong>AWS:</strong> Bedrock optional</p></section></div>
+</main>
+<script>
+async function call(name,args={}){
+ const utterances={invoice_summary:"What invoices need my attention?",list_invoices:"Show me overdue invoices.",ai_business_summary:"Give me a business summary."};
+ document.querySelector('#utterance').textContent='“'+(utterances[name]||'Run '+name)+'”';
+ const r=await fetch('/mcp',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:Date.now(),method:'tools/call',params:{name,arguments:args}})});
+ const j=await r.json(); document.querySelector('#output').textContent=j.result?.content?.[0]?.text||JSON.stringify(j,null,2);
+}
+</script>
+</body></html>
