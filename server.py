@@ -1,12 +1,10 @@
 import json
 import os
-import uuid
 from datetime import date, timedelta
 from typing import Any
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
-from pydantic import BaseModel
 
 app = FastAPI(title="InvoicePilot Alexa+ MCP")
 
