@@ -1,0 +1,8 @@
+{
+  "name": "invoicepilot-alexa",
+  "version": "1.0.0",
+  "protocolVersion": "2025-11-25",
+  "transport": "streamable-http",
+  "endpoint": "/mcp",
+  "tools": ["list_invoices", "get_invoice", "create_invoice", "invoice_summary", "ai_business_summary"]
+}
